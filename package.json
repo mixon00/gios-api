@@ -18,10 +18,12 @@
     "node-fetch": "^2.4.1"
   },
   "scripts": {
-    "docs": "jsdoc -c jsdoc.json"
+    "docs": "jsdoc -c jsdoc.json",
+    "test": "jest --verbose"
   },
   "devDependencies": {
     "braintree-jsdoc-template": "^3.3.0",
+    "jest": "^24.7.1",
     "jsdoc": "^3.5.5"
   }
 }
