@@ -16,5 +16,12 @@
   "license": "MIT",
   "dependencies": {
     "node-fetch": "^2.4.1"
+  },
+  "scripts": {
+    "docs": "jsdoc -c jsdoc.json"
+  },
+  "devDependencies": {
+    "braintree-jsdoc-template": "^3.3.0",
+    "jsdoc": "^3.5.5"
   }
 }
