@@ -1,0 +1,17 @@
+{
+  "name": "gios-api",
+  "version": "0.0.1",
+  "description": "GIOŚ API JavaScript Wrapper",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mixon00/gios-api.git"
+  },
+  "homepage": "https://github.com/mixon00/gios-api",
+  "author": {
+    "name": "Mateusz Misztoft",
+    "email": "mixon00@gmail.com",
+    "url": "https://misztoft.pl"
+  },
+  "license": "MIT"
+}
