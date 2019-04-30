@@ -11,14 +11,15 @@
   "plugins": ["plugins/markdown", "plugins/summarize"],
   "templates": {
     "referenceTitle": "GIOŚ API",
-    "disableSort": true,
-    "collapse": true
+    "cleverLinks": false,
+    "monospaceLinks": true,
+    "disableSort": true
   },
   "opts": {
     "destination": "./docs/",
     "encoding": "utf8",
     "private": true,
     "recurse": true,
-    "template": "./node_modules/braintree-jsdoc-template"
+    "template": "./node_modules/latodoc"
   }
 }

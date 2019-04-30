@@ -1,17 +1,3 @@
-/**
- * @typedef {Object} Station~Coordinates
- * @property {number} lat The latitude value
- * @property {number} lon The longitude value
- */
-
-/**
- * @typedef {Object} Station~City
- * @property {number} id The city id
- * @property {string} name The city name
- * @property {string} address The city address
- * @property {string} voivodeship The city voivodeship
- */
-
 /** Class to parse station object. */
 class Station {
   /**
@@ -37,7 +23,9 @@ class Station {
   }
   /**
    * Returns the station coordinates.
-   * @return {Station~Coordinates} Station coordinates.
+   * @return {object} Station coordinates.
+   * @property {number} lat The latitude value
+   * @property {number} lon The longitude value
    */
   getCoordinates() {
     return {
@@ -47,7 +35,11 @@ class Station {
   }
   /**
    * Returns the station city information.
-   * @return {Station~City} Station city.
+   * @return {object} Station city.
+   * @property {number} id The city id
+   * @property {string} name The city name
+   * @property {string} address The city address
+   * @property {string} voivodeship The city voivodeship
    */
   getCity() {
     const {
