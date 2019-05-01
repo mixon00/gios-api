@@ -1,6 +1,6 @@
 {
   "name": "gios-api",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "GIOŚ API JavaScript Wrapper",
   "main": "index.js",
   "repository": {
