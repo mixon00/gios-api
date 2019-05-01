@@ -4,22 +4,38 @@
     "dictionaries": ["jsdoc"]
   },
   "source": {
-    "include": ["src", "package.json", "README.md"],
+    "include": ["src", "README.md"],
     "includePattern": ".js$",
     "excludePattern": "(node_modules/|docs)"
   },
-  "plugins": ["plugins/markdown", "plugins/summarize"],
+  "plugins": ["plugins/markdown"],
   "templates": {
-    "referenceTitle": "GIOŚ API",
-    "cleverLinks": false,
+    "cleverLinks": true,
     "monospaceLinks": true,
-    "disableSort": true
+    "disableSort": true,
+    "applicationName": "GIOŚ API Wrapper",
+    "disqus": "",
+    "googleAnalytics": "",
+    "openGraph": {
+      "title": "GIOŚ API JavaScript Wrapper",
+      "type": "website",
+      "image": "",
+      "site_name": "GIOŚ API",
+      "url": ""
+    },
+    "meta": {
+      "title": "GIOŚ API JavaScript Wrapper",
+      "description": "GIOŚ API JavaScript Wrapper",
+      "keyword": "gioś, api, wrapper, javascript, js"
+    },
+    "linenums": true
   },
   "opts": {
-    "destination": "./docs/",
+    "destination": "docs",
     "encoding": "utf8",
-    "private": true,
     "recurse": true,
-    "template": "./node_modules/latodoc"
+    "private": true,
+    "lenient": true,
+    "template": "./node_modules/@pixi/jsdoc-template"
   }
 }

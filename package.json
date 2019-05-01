@@ -22,8 +22,8 @@
     "test": "jest --verbose"
   },
   "devDependencies": {
+    "@pixi/jsdoc-template": "^2.4.2",
     "jest": "^24.7.1",
-    "jsdoc": "^3.5.5",
-    "latodoc": "smeijer/latodoc"
+    "jsdoc": "^3.5.5"
   }
 }
