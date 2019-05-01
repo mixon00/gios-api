@@ -2,7 +2,17 @@
   "name": "gios-api",
   "version": "0.2.3",
   "description": "GIOŚ API JavaScript Wrapper",
-  "main": "lib/gios_api.js",
+  "main": "dist/gios_api.js",
+  "keywords": [
+    "gios",
+    "gioś",
+    "api",
+    "wrapper",
+    "npm",
+    "module",
+    "node",
+    "javascript"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mixon00/gios-api.git"
