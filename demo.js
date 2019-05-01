@@ -1,6 +1,7 @@
 const GIOS_API = require("./index");
 
-const airQuality = new GIOS_API();
-const allStations = airQuality
-  .findAll()
-  .then(data => console.log(data[0].getCoordinates()));
+(async () => {
+  const giosAPI = new GIOS_API();
+  const stations = await giosAPI.findAll();
+  console.log(stations);
+})();
