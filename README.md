@@ -13,5 +13,6 @@ or
 ```javascript
 import GIOS_API from "gios-api";
 
-const airQuality = new GIOS_API(options);
+const giosAPI = new GIOS_API();
+const stations = await giosAPI.findAll();
 ```
