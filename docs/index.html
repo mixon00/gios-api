@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>GIOŚ API JavaScript Wrapper</title>
+    
+    <meta name="description" content="GIOŚ API JavaScript Wrapper" />
+    
+        <meta name="keywords" content="gioś, api, wrapper, javascript, js" />
+        <meta name="keyword" content="gioś, api, wrapper, javascript, js" />
+    
+    
+    
+    <meta property="og:title" content="GIOŚ API JavaScript Wrapper"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content=""/>
+    <meta property="og:site_name" content="GIOŚ API"/>
+    <meta property="og:url" content=""/>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+    
+    
+    <script>
+    var config = {"monospaceLinks":true,"cleverLinks":true,"disableSort":true,"applicationName":"GIOŚ API Wrapper","disqus":"","googleAnalytics":"","openGraph":{"title":"GIOŚ API JavaScript Wrapper","type":"website","image":"","site_name":"GIOŚ API","url":""},"meta":{"title":"GIOŚ API JavaScript Wrapper","description":"GIOŚ API JavaScript Wrapper","keyword":"gioś, api, wrapper, javascript, js"},"linenums":true,"default":{}};
+    </script>
+    
+
+    
+</head>
+<body>
+<div id="wrap" class="clearfix">
+    
+<div class="navigation">
+    <h3 class="applicationName"><a href="index.html">GIOŚ API Wrapper</a></h3>
+    <button id="menuToggle" class="btn btn-link btn-lg menu-toggle">
+        <span class="glyphicon glyphicon-menu-hamburger"></span>
+    </button>
+    <div class="search">
+        <input id="search" type="text" class="form-control input-md" placeholder="Search...">
+    </div>
+    <ul class="list">
+    
+        <li class="item" data-name="global">
+            <span class="title namespace ">
+                
+                <span class="namespaceTag">
+                    <span class="glyphicon glyphicon-globe"></span>
+                </span>
+                
+                <a href="global.html">Global</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            <span class="subtitle">Members</span>
+            
+                <li class="parent " data-name="urlConstants"><a href="global.html#urlConstants">urlConstants</a></li>
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="GIOS_API">
+            <span class="title  ">
+                
+                <a href="GIOS_API.html">GIOS_API</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li class="parent  " data-name="GIOS_API#findAll"><a href="GIOS_API.html#findAll">findAll</a></li>
+            
+                <li class="parent  " data-name="GIOS_API#findById"><a href="GIOS_API.html#findById">findById</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="Station">
+            <span class="title  ">
+                
+                <a href="Station.html">Station</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li class="parent  " data-name="Station#getCity"><a href="Station.html#getCity">getCity</a></li>
+            
+                <li class="parent  " data-name="Station#getCoordinates"><a href="Station.html#getCoordinates">getCoordinates</a></li>
+            
+                <li class="parent  " data-name="Station#getId"><a href="Station.html#getId">getId</a></li>
+            
+                <li class="parent  " data-name="Station#getName"><a href="Station.html#getName">getName</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+    </ul>
+</div>
+    <div class="main">
+        <h1 class="page-title" data-filename="index.html">Index</h1>
+        
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article class="readme content-size"><h1>GIOŚ API JavaScript Wrapper</h1><h3>Install</h3><p><code>yarn add gios-api</code></p>
+<p>or</p>
+<p><code>npm install gios-api</code></p>
+<h3>Import and use</h3><pre class="prettyprint source lang-javascript"><code>import GIOS_API from &quot;gios-api&quot;;
+
+const giosAPI = new GIOS_API();
+const stations = await giosAPI.findAll();</code></pre></article>
+    </section>
+
+
+
+
+
+
+        
+
+        <footer class="content-size">
+            <div class="footer">
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu May 02 2019 00:45:29 GMT+0200 (GMT+02:00)
+            </div>
+        </footer>
+    </div>
+</div>
+<script>prettyPrint();</script>
+<script src="scripts/main.js"></script>
+</body>
+</html>
