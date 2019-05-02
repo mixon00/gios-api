@@ -13,29 +13,17 @@
     "cleverLinks": true,
     "monospaceLinks": true,
     "disableSort": true,
-    "applicationName": "GIOŚ API Wrapper",
-    "disqus": "",
-    "googleAnalytics": "",
-    "openGraph": {
-      "title": "GIOŚ API JavaScript Wrapper",
-      "type": "website",
-      "image": "",
-      "site_name": "GIOŚ API",
-      "url": ""
-    },
-    "meta": {
-      "title": "GIOŚ API JavaScript Wrapper",
-      "description": "GIOŚ API JavaScript Wrapper",
-      "keyword": "gioś, api, wrapper, javascript, js"
-    },
-    "linenums": true
+    "referenceTitle": "GIOŚ API Wrapper",
+    "collapse": false,
+    "resources": {
+      "GitHub": "https://github.com/mixon00/gios-api"
+    }
   },
   "opts": {
     "destination": "docs",
     "encoding": "utf8",
     "recurse": true,
     "private": true,
-    "lenient": true,
-    "template": "./node_modules/@pixi/jsdoc-template"
+    "template": "./node_modules/braintree-jsdoc-template"
   }
 }

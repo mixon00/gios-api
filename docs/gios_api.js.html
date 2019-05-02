@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      Global - Documentation
+      gios_api.js - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -86,334 +88,80 @@
   <div id="main">
     
       <h1 class="page-title">
-        Global
+        gios_api.js
       </h1>
     
 
     
+      
 
 <section>
-  <header>
-    
-      <h2>
-        
-        
-        
-      </h2>
-
-      
-    
-  </header>
-
   <article>
-    <div class="container-overview">
-      
-        
-
-        
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-        
-      
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-
-<h4 class="name" id="urlConstants">
-  <span class="type-signature">(constant) </span>urlConstants<span class="type-signature"> :object</span>
-</h4>
-
-
-
-
-
-
-
-  <h5 class="subsection-title">Properties:</h5>
-
-  
-
-<table class="props">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-
-    <tr>
-      
-        <td class="name"><code>url</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>api url</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>all_stations</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>station path</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>urlConstants.sensors</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>sensors path</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>sensor_data</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>sensor data path</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>air_quality</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>air quality index path</p>
-          </td>
-    </tr>
-
-  
-  </tbody>
-</table>
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="constants_url.constants.js.html">constants/url.constants.js</a>, <a href="constants_url.constants.js.html#line10">line 10</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-          
-        
-    
-
-    
-
-    
-
-    
+    <pre class="prettyprint source linenums"><code>const Station = require("./Station");
+const fetch = require("node-fetch");
+const { api } = require("./constants");
+
+/**
+ * GIOS API Class.
+ * */
+class GIOS_API {
+  /**
+   * Find all stations
+   *
+   * @async
+   * @return {Promise&lt;Station[]>} The array of stations data.
+   * @throws {TypeError} Connection error
+   * @example
+   *
+   * const giosApi = new GIOS_API();
+   * const data = await giosApi.findAll();
+   */
+  async findAll() {
+    try {
+      const response = await fetch(`${api.url}${api.all_stations}`);
+      const stations = await response.json();
+      return stations.map(station => new Station(station));
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  /**
+   * Find stations by one ore multiple ids.
+   *
+   * @async
+   * @param {(number|number[])} id - One or multiple stations id.
+   * @return {Promise&lt;Station[]>} The array of stations data.
+   * @throws {TypeError} Connection error
+   * @example
+   *
+   * const giosApi = new GIOS_API();
+   *
+   * const data = await giosApi.findById(45);
+   * //or
+   * const data = await giosApi.findById([488, 145, 732]);
+   */
+  async findById(id) {
+    try {
+      const serchedId = Array.isArray(id) ? id : [id];
+      const response = await fetch(`${api.url}${api.all_stations}`);
+      const stations = await response.json();
+      const filtered = await stations.filter(function(station) {
+        return this.find(id => id === station.id);
+      }, serchedId);
+      return filtered.map(station => new Station(station));
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+}
+
+module.exports = GIOS_API;
+</code></pre>
   </article>
 </section>
 
-
+    
 
 
   </div>
