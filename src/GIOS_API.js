@@ -1,5 +1,5 @@
 const Station = require("./Station");
-const fetch = require("node-fetch");
+const fetch = require("node-fetch").default;
 const { api } = require("./constants");
 const nearestLocation = require("./utils/nearestLocation");
 
