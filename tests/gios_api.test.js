@@ -24,4 +24,16 @@ describe("GIOS_API Class", () => {
     expect(station.getId()).toBe(842);
     expect(station.getName()).toEqual("Ustroń, ul. Sanatoryjna 7");
   });
+
+  it("new GIOS_API().findInRange()", async () => {
+    fetch = jest.fn(() => new Promise(resolve => resolve()));
+    const giosAPI = new GIOS_API();
+    const data = await giosAPI.findInRange(52.406376, 16.925167);
+    const station = data[0];
+    expect(station.getId()).toBe(943);
+    expect(station.getCoordinates()).toEqual({
+      lat: 52.398175,
+      lon: 16.959519
+    });
+  });
 });
