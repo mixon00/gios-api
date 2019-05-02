@@ -37,7 +37,7 @@
     "build": "parcel build src/gios_api.js -d dist --no-cache"
   },
   "devDependencies": {
-    "@pixi/jsdoc-template": "^2.4.2",
+    "braintree-jsdoc-template": "^3.3.0",
     "jest": "^24.7.1",
     "jsdoc": "^3.5.5",
     "parcel-bundler": "^1.12.3"

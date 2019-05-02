@@ -829,13 +829,6 @@
     "@parcel/utils" "^1.11.0"
     physical-cpu-count "^2.0.0"
 
-"@pixi/jsdoc-template@^2.4.2":
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/@pixi/jsdoc-template/-/jsdoc-template-2.4.2.tgz#ca55eb44da9c3ac449c46de56c5e24b8a3752a8d"
-  dependencies:
-    taffydb "^2.7.2"
-    underscore "^1.7.0"
-
 "@types/babel__core@^7.1.0":
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.1.tgz#ce9a9e5d92b7031421e1d0d74ae59f572ba48be6"
@@ -1193,6 +1186,10 @@ braces@^2.3.1, braces@^2.3.2:
     snapdragon-node "^2.0.1"
     split-string "^3.0.2"
     to-regex "^3.0.1"
+
+braintree-jsdoc-template@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/braintree-jsdoc-template/-/braintree-jsdoc-template-3.3.0.tgz#6a98a8c209673caab752e19dfa4408850a9439fe"
 
 brfs@^1.2.0:
   version "1.6.1"
@@ -5373,10 +5370,6 @@ taffydb@2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/taffydb/-/taffydb-2.6.2.tgz#7cbcb64b5a141b6a2efc2c5d2c67b4e150b2a268"
 
-taffydb@^2.7.2:
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/taffydb/-/taffydb-2.7.3.tgz#2ad37169629498fca5bc84243096d3cde0ec3a34"
-
 tar@^4:
   version "4.4.8"
   resolved "https://registry.yarnpkg.com/tar/-/tar-4.4.8.tgz#b19eec3fde2a96e64666df9fdb40c5ca1bc3747d"
@@ -5547,10 +5540,6 @@ underscore-contrib@~0.3.0:
 underscore@1.6.0, underscore@~1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.6.0.tgz#8b38b10cacdef63337b8b24e4ff86d45aea529a8"
-
-underscore@^1.7.0:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
 
 underscore@~1.8.3:
   version "1.8.3"

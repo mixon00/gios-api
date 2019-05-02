@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      Global - Documentation
+      constants/url.constants.js - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -86,334 +88,38 @@
   <div id="main">
     
       <h1 class="page-title">
-        Global
+        constants/url.constants.js
       </h1>
     
 
     
+      
 
 <section>
-  <header>
-    
-      <h2>
-        
-        
-        
-      </h2>
-
-      
-    
-  </header>
-
   <article>
-    <div class="container-overview">
-      
-        
-
-        
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-        
-      
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-
-<h4 class="name" id="urlConstants">
-  <span class="type-signature">(constant) </span>urlConstants<span class="type-signature"> :object</span>
-</h4>
-
-
-
-
-
-
-
-  <h5 class="subsection-title">Properties:</h5>
-
-  
-
-<table class="props">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-
-    <tr>
-      
-        <td class="name"><code>url</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>api url</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>all_stations</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>station path</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>urlConstants.sensors</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>sensors path</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>sensor_data</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>sensor data path</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>air_quality</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>air quality index path</p>
-          </td>
-    </tr>
-
-  
-  </tbody>
-</table>
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="constants_url.constants.js.html">constants/url.constants.js</a>, <a href="constants_url.constants.js.html#line10">line 10</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-          
-        
-    
-
-    
-
-    
-
-    
+    <pre class="prettyprint source linenums"><code>/**
+ * @constant
+ * @type {object}
+ * @property {string} url api url
+ * @property {string} all_stations station path
+ * @property {string} urlConstants.sensors sensors path
+ * @property {string} sensor_data sensor data path
+ * @property {string} air_quality air quality index path
+ */
+const urlConstants = {
+  url: "http://api.gios.gov.pl/pjp-api/rest/",
+  all_stations: "station/findAll/",
+  sensors: "station/sensors/",
+  sensor_data: "data/getData/",
+  air_quality: "aqindex/getIndex/"
+};
+
+module.exports = urlConstants;
+</code></pre>
   </article>
 </section>
 
-
+    
 
 
   </div>
