@@ -58,3 +58,8 @@ jspm_packages/
 # dotenv environment variables file
 .env
 .env.test
+
+#build
+dist
+lib
+.cache

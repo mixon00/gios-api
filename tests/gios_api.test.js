@@ -1,4 +1,4 @@
-const GIOS_API = require("../src/GIOS_API");
+const GIOS_API = require("../src/gios_api");
 
 describe("GIOS_API Class", () => {
   it("new GIOS_API()", () => {
