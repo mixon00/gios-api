@@ -6,6 +6,7 @@
  * @property {string} urlConstants.sensors sensors path
  * @property {string} sensor_data sensor data path
  * @property {string} air_quality air quality index path
+ * @ignore
  */
 const urlConstants = {
   url: "http://api.gios.gov.pl/pjp-api/rest/",
