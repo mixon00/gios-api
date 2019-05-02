@@ -1,4 +1,4 @@
-const GIOS_API = require("../src/gios_api");
+const { GIOS_API } = require("../src");
 
 (async () => {
   const giosAPI = new GIOS_API();

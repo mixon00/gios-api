@@ -11,7 +11,7 @@ or
 ### Import and use
 
 ```javascript
-import GIOS_API from "gios-api";
+import { GIOS_API } from "gios-api";
 
 const giosAPI = new GIOS_API();
 const stations = await giosAPI.findAll();
