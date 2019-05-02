@@ -69,4 +69,24 @@ describe("Station Class", () => {
       voivodeship: "WIELKOPOLSKIE"
     });
   });
+
+  it("new Station(data).getRaw()", () => {
+    const station = new Station(mock_data);
+    expect(station.getRaw()).toEqual({
+      id: 944,
+      stationName: "Poznan-Dabrowskiego",
+      gegrLat: "52.420319",
+      gegrLon: "16.877289",
+      city: {
+        id: 729,
+        name: "Poznań",
+        commune: {
+          communeName: "Poznań",
+          districtName: "Poznań",
+          provinceName: "WIELKOPOLSKIE"
+        }
+      },
+      addressStreet: "ul. Dąbrowskiego 169"
+    });
+  });
 });

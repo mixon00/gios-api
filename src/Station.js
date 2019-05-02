@@ -80,6 +80,18 @@ class Station {
       voivodeship
     };
   }
+
+  /**
+   * Returns the station raw object.
+   * @return {object} Raw station object.
+   * @example
+   *
+   * const station = new Station(stationObject);
+   * const stationCity = station.getRaw();
+   */
+  getRaw() {
+    return this.station;
+  }
 }
 
 module.exports = Station;
