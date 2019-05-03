@@ -52,6 +52,19 @@ describe("Sensor Class", () => {
     expect(sensor.getCode()).toEqual("PM10");
   });
 
+  it("new Sensor(data).fetchData()", async () => {
+    const sensor = new Sensor(mock_data);
+    const data = await sensor.fetchData();
+    expect(data.length).toBeGreaterThanOrEqual(0);
+  });
+
+  it("new Sensor(data).getData()", async () => {
+    const sensor = new Sensor(mock_data);
+    await sensor.fetchData();
+    const data = sensor.getData();
+    expect(data.length).toBeGreaterThanOrEqual(0);
+  });
+
   it("new Sensor(data).getRaw()", () => {
     const sensor = new Sensor(mock_data);
     expect(sensor.getRaw()).toEqual({

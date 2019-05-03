@@ -1,3 +1,6 @@
+const fetch = require("node-fetch").default;
+const { api } = require("./constants");
+
 /**
  * Sensor object
  * @typedef {object} Sensor~Object
@@ -11,6 +14,13 @@
  */
 
 /**
+ * Sensor data
+ * @typedef {object} Sensor~Data
+ * @property {string} data Date and time of measurement.
+ * @property {number} value The value of the measurement.
+ */
+
+/**
  * Class to parse sensor object.
  * @class
  * @property {Sensor~Object} sensor The station object.
@@ -19,6 +29,7 @@ class Sensor {
   /**
    * Create a sensor.
    * @param {Sensor~Object} sensor - The sensor object.
+   * @param {Sensor~Data[]} data - The sensor data.
    * @example
    *
    * const sensor = new Sensor(sensorObject);
@@ -77,6 +88,31 @@ class Sensor {
    */
   getCode() {
     return this.sensor.param.paramCode;
+  }
+
+  /**
+   * Fetch sensor data.
+   * @async
+   * @example
+   *
+   * const sensor = new Station(sensorObject);
+   * const sensorCode = sensor.fetchData();
+   */
+  async fetchData() {
+    try {
+      const response = await fetch(
+        `${api.url}${api.sensor_data}${this.getId()}`
+      );
+      const data = await response.json();
+      this.data = data.values;
+      return this.data;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  getData() {
+    return this.data;
   }
 
   /**
