@@ -24,6 +24,7 @@ describe("Station Class", () => {
 
   it("new Station(data)", () => {
     const station = new Station(mock_data);
+    expect(station).toBeTruthy();
     expect(station.station).toEqual({
       id: 944,
       stationName: "Poznan-Dabrowskiego",

@@ -1,15 +1,53 @@
-/** Class to parse station object. */
+/**
+ * Station object
+ * @typedef {object} Station~Object
+ * @property {number} id The station id
+ * @property {string} stationName The station name
+ * @property {string} gegrLat The station Latitude
+ * @property {string} gegrLon The station Longitude
+ * @property {object} city The station city object
+ * @property {number} city.id The station city id
+ * @property {string} city.name The station city name
+ * @property {object} city.commune The station city commune
+ * @property {string} city.commune.communeName The city commune name
+ * @property {string} city.commune.districtName The city district name
+ * @property {string} city.commune.provinceName The city voivodeship
+ */
+
+/**
+ * Station city object
+ * @typedef {object} Station~City
+ * @property {number} id The city id
+ * @property {string} name The city name
+ * @property {string} address The city address
+ * @property {string} voivodeship The city voivodeship
+ */
+
+/**
+ * Staion coordinates object
+ * @typedef {object} Station~Coordinates
+ * @property {number} lat The latitude value
+ * @property {number} lon The longitude value
+ */
+
+/**
+ * Class to parse station object.
+ * @class
+ * @property {Station~Object} station The station object.
+ * */
 class Station {
   /**
    * Create a station.
-   * @param {object} station - The station object.
+   * @param {Station~Object} station - The station object.
    * @example
    *
    * const station = new Station(stationObject);
    */
   constructor(station) {
     this.station = station;
+    this.sensors = [];
   }
+
   /**
    * Returns the station id.
    * @return {number} Station id.
@@ -22,6 +60,7 @@ class Station {
   getId() {
     return this.station.id;
   }
+
   /**
    * Returns the station name.
    * @return {string} Station name.
@@ -34,11 +73,10 @@ class Station {
   getName() {
     return this.station.stationName;
   }
+
   /**
    * Returns the station coordinates.
-   * @return {object} Station coordinates.
-   * @property {number} lat The latitude value
-   * @property {number} lon The longitude value
+   * @return {Station~Coordinates} Station coordinates.
    * @example
    *
    * const station = new Station(stationObject);
@@ -51,13 +89,10 @@ class Station {
       lon: parseFloat(this.station.gegrLon)
     };
   }
+
   /**
    * Returns the station city information.
-   * @return {object} Station city.
-   * @property {number} id The city id
-   * @property {string} name The city name
-   * @property {string} address The city address
-   * @property {string} voivodeship The city voivodeship
+   * @return {Station~City} Station city.
    * @example
    *
    * const station = new Station(stationObject);
@@ -83,7 +118,7 @@ class Station {
 
   /**
    * Returns the station raw object.
-   * @return {object} Raw station object.
+   * @return {Station~Object} Raw station object.
    * @example
    *
    * const station = new Station(stationObject);
