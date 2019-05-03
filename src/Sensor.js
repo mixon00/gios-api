@@ -12,6 +12,8 @@
 
 /**
  * Class to parse sensor object.
+ * @class
+ * @property {Sensor~Object} sensor The station object.
  * */
 class Sensor {
   /**
