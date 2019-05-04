@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      gios_api.js - Documentation
+      GIOS_API.js - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -82,13 +82,13 @@
       
     
 
-    <h3>Classes</h3><ul><li id="Station-nav"><a href="Station.html">Station</a><ul class='methods'><li data-type="method" id="Station-getId-nav"><a href="Station.html#getId">getId</a></li><li data-type="method" id="Station-getName-nav"><a href="Station.html#getName">getName</a></li><li data-type="method" id="Station-getCoordinates-nav"><a href="Station.html#getCoordinates">getCoordinates</a></li><li data-type="method" id="Station-getCity-nav"><a href="Station.html#getCity">getCity</a></li><li data-type="method" id="Station-getRaw-nav"><a href="Station.html#getRaw">getRaw</a></li></ul></li><li id="GIOS_API-nav"><a href="GIOS_API.html">GIOS_API</a><ul class='methods'><li data-type="method" id="GIOS_API-findAll-nav"><a href="GIOS_API.html#findAll">findAll</a></li><li data-type="method" id="GIOS_API-findById-nav"><a href="GIOS_API.html#findById">findById</a></li><li data-type="method" id="GIOS_API-findInRange-nav"><a href="GIOS_API.html#findInRange">findInRange</a></li></ul></li></ul>
+    <h3>Classes</h3><ul><li id="GIOS_API-nav"><a href="GIOS_API.html">GIOS_API</a><ul class='methods'><li data-type="method" id="GIOS_API-findAll-nav"><a href="GIOS_API.html#findAll">findAll</a></li><li data-type="method" id="GIOS_API-findById-nav"><a href="GIOS_API.html#findById">findById</a></li><li data-type="method" id="GIOS_API-findInRange-nav"><a href="GIOS_API.html#findInRange">findInRange</a></li><li data-type="method" id="GIOS_API-fetchStationSensors-nav"><a href="GIOS_API.html#fetchStationSensors">fetchStationSensors</a></li></ul></li><li id="Sensor-nav"><a href="Sensor.html">Sensor</a><ul class='methods'><li data-type="method" id="Sensor-getId-nav"><a href="Sensor.html#getId">getId</a></li><li data-type="method" id="Sensor-getStationId-nav"><a href="Sensor.html#getStationId">getStationId</a></li><li data-type="method" id="Sensor-getName-nav"><a href="Sensor.html#getName">getName</a></li><li data-type="method" id="Sensor-getCode-nav"><a href="Sensor.html#getCode">getCode</a></li><li data-type="method" id="Sensor-fetchData-nav"><a href="Sensor.html#fetchData">fetchData</a></li><li data-type="method" id="Sensor-getRaw-nav"><a href="Sensor.html#getRaw">getRaw</a></li></ul></li><li id="SensorsList-nav"><a href="SensorsList.html">SensorsList</a><ul class='methods'><li data-type="method" id="SensorsList-getList-nav"><a href="SensorsList.html#getList">getList</a></li><li data-type="method" id="SensorsList-getSensor-nav"><a href="SensorsList.html#getSensor">getSensor</a></li><li data-type="method" id="SensorsList-getCodes-nav"><a href="SensorsList.html#getCodes">getCodes</a></li><li data-type="method" id="SensorsList-prefetchData-nav"><a href="SensorsList.html#prefetchData">prefetchData</a></li></ul></li><li id="Station-nav"><a href="Station.html">Station</a><ul class='methods'><li data-type="method" id="Station-getId-nav"><a href="Station.html#getId">getId</a></li><li data-type="method" id="Station-getName-nav"><a href="Station.html#getName">getName</a></li><li data-type="method" id="Station-getCoordinates-nav"><a href="Station.html#getCoordinates">getCoordinates</a></li><li data-type="method" id="Station-getCity-nav"><a href="Station.html#getCity">getCity</a></li><li data-type="method" id="Station-getRaw-nav"><a href="Station.html#getRaw">getRaw</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
     
       <h1 class="page-title">
-        gios_api.js
+        GIOS_API.js
       </h1>
     
 
@@ -98,7 +98,8 @@
 <section>
   <article>
     <pre class="prettyprint source linenums"><code>const Station = require("./Station");
-const fetch = require("node-fetch");
+const SensorsList = require("./SensorsList");
+const fetch = require("node-fetch").default;
 const { api } = require("./constants");
 const nearestLocation = require("./utils/nearestLocation");
 
@@ -187,24 +188,58 @@ class GIOS_API {
    * const data = await giosApi.findInRange(52.406376, 16.925167, settings);
    */
   async findInRange(lat, lon, settings) {
-    const defaultSettings = { distance: 5000, limit: 1, showNearest: false };
-    const response = await fetch(`${api.url}${api.all_stations}`);
-    const stations = await response.json();
-    const distances = nearestLocation({ lat, lon }, stations);
+    try {
+      const defaultSettings = { distance: 5000, limit: 1, showNearest: false };
+      const response = await fetch(`${api.url}${api.all_stations}`);
+      const stations = await response.json();
+      const distances = nearestLocation({ lat, lon }, stations);
 
-    settings = { ...defaultSettings, ...settings };
+      settings = { ...defaultSettings, ...settings };
 
-    let nearestStations = distances.filter(
-      station => station.distance &lt; settings.distance
-    );
+      let nearestStations = distances.filter(
+        station => station.distance &lt; settings.distance
+      );
 
-    if (nearestStations.length > 0)
-      nearestStations = nearestStations.slice(0, settings.limit);
+      if (nearestStations.length > 0)
+        nearestStations = nearestStations.slice(0, settings.limit);
 
-    if (nearestStations.length === 0 &amp;&amp; settings.showNearest)
-      nearestStations.push(distances[0]);
+      if (nearestStations.length === 0 &amp;&amp; settings.showNearest)
+        nearestStations.push(distances[0]);
 
-    return nearestStations.map(nearest => new Station(stations[nearest.index]));
+      return nearestStations.map(
+        nearest => new Station(stations[nearest.index])
+      );
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  /**
+   * Fetch station sensors by station id.
+   *
+   * @async
+   * @param {number} id - The station id.
+   * @param {boolean} [prefetch=false] Flag to prefecth all sensors data;
+   * @return {Promise&lt;StationsList>} Return the StationList class.
+   * @throws {TypeError} Connection error
+   * @example
+   *
+   * const giosApi = new GIOS_API();
+   * const sensors = await giosApi.fetchStationSensors(45);
+   */
+  async fetchStationSensors(stationId, prefetch = false) {
+    try {
+      const response = await fetch(`${api.url}${api.sensors}${stationId}`);
+      const sensors = await response.json();
+      const sensorsList = new SensorsList(sensors);
+
+      if(prefetch) await sensorsList.prefetchData();
+
+      return sensorsList
+
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 }
 
