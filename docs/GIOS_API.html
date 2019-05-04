@@ -1069,7 +1069,7 @@ const data = await giosApi.findInRange(52.406376, 16.925167, settings);</code></
         
 
         <td class="description last">
-          <p>Flag to prefecth all sensors data;</p>
+          <p>Flag to prefecth all sensors data.</p>
           
         </td>
       </tr>
@@ -1113,7 +1113,7 @@ const data = await giosApi.findInRange(52.406376, 16.925167, settings);</code></
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="GIOS_API.js.html">GIOS_API.js</a>, <a href="GIOS_API.js.html#line131">line 131</a>
+          <a href="GIOS_API.js.html">GIOS_API.js</a>, <a href="GIOS_API.js.html#line135">line 135</a>
         </li>
       </ul>
     </dd>
@@ -1179,7 +1179,11 @@ const data = await giosApi.findInRange(52.406376, 16.925167, settings);</code></
     
 
   <pre class="prettyprint"><code>const giosApi = new GIOS_API();
-const sensors = await giosApi.fetchStationSensors(45);</code></pre>
+const sensors = await giosApi.fetchStationSensors(944);
+
+//or
+
+const sensors = await giosApi.fetchStationSensors(944, true);</code></pre>
 
 
   </div>
