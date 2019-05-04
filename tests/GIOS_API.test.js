@@ -36,4 +36,11 @@ describe("GIOS_API Class", () => {
       lon: 16.959519
     });
   });
+
+  it("new GIOS_API().fetchStationSensors()", async () => {
+    fetch = jest.fn(() => new Promise(resolve => resolve()));
+    const giosAPI = new GIOS_API();
+    const sensorsList = await giosAPI.fetchStationSensors(944);
+    expect(sensorsList.getCodes().length).toBeGreaterThan(0);
+  });
 });

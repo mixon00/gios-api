@@ -1,4 +1,5 @@
 const Station = require("./Station");
+const SensorsList = require("./SensorsList");
 const fetch = require("node-fetch").default;
 const { api } = require("./constants");
 const nearestLocation = require("./utils/nearestLocation");
@@ -88,24 +89,62 @@ class GIOS_API {
    * const data = await giosApi.findInRange(52.406376, 16.925167, settings);
    */
   async findInRange(lat, lon, settings) {
-    const defaultSettings = { distance: 5000, limit: 1, showNearest: false };
-    const response = await fetch(`${api.url}${api.all_stations}`);
-    const stations = await response.json();
-    const distances = nearestLocation({ lat, lon }, stations);
+    try {
+      const defaultSettings = { distance: 5000, limit: 1, showNearest: false };
+      const response = await fetch(`${api.url}${api.all_stations}`);
+      const stations = await response.json();
+      const distances = nearestLocation({ lat, lon }, stations);
 
-    settings = { ...defaultSettings, ...settings };
+      settings = { ...defaultSettings, ...settings };
 
-    let nearestStations = distances.filter(
-      station => station.distance < settings.distance
-    );
+      let nearestStations = distances.filter(
+        station => station.distance < settings.distance
+      );
 
-    if (nearestStations.length > 0)
-      nearestStations = nearestStations.slice(0, settings.limit);
+      if (nearestStations.length > 0)
+        nearestStations = nearestStations.slice(0, settings.limit);
 
-    if (nearestStations.length === 0 && settings.showNearest)
-      nearestStations.push(distances[0]);
+      if (nearestStations.length === 0 && settings.showNearest)
+        nearestStations.push(distances[0]);
 
-    return nearestStations.map(nearest => new Station(stations[nearest.index]));
+      return nearestStations.map(
+        nearest => new Station(stations[nearest.index])
+      );
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  /**
+   * Fetch station sensors by station id.
+   *
+   * @async
+   * @param {number} id - The station id.
+   * @param {boolean} [prefetch=false] Flag to prefecth all sensors data.
+   * @return {Promise<StationsList>} Return the StationList class.
+   * @throws {TypeError} Connection error
+   * @example
+   *
+   * const giosApi = new GIOS_API();
+   * const sensors = await giosApi.fetchStationSensors(944);
+   * 
+   * //or
+   * 
+   * const sensors = await giosApi.fetchStationSensors(944, true);
+   */
+  async fetchStationSensors(stationId, prefetch = false) {
+    try {
+      const response = await fetch(`${api.url}${api.sensors}${stationId}`);
+      const sensors = await response.json();
+      const sensorsList = new SensorsList(sensors);
+
+      if(prefetch) await sensorsList.prefetchData();
+
+      return sensorsList
+
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 }
 
