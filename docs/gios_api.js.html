@@ -219,13 +219,17 @@ class GIOS_API {
    *
    * @async
    * @param {number} id - The station id.
-   * @param {boolean} [prefetch=false] Flag to prefecth all sensors data;
+   * @param {boolean} [prefetch=false] Flag to prefecth all sensors data.
    * @return {Promise&lt;StationsList>} Return the StationList class.
    * @throws {TypeError} Connection error
    * @example
    *
    * const giosApi = new GIOS_API();
-   * const sensors = await giosApi.fetchStationSensors(45);
+   * const sensors = await giosApi.fetchStationSensors(944);
+   * 
+   * //or
+   * 
+   * const sensors = await giosApi.fetchStationSensors(944, true);
    */
   async fetchStationSensors(stationId, prefetch = false) {
     try {

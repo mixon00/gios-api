@@ -4,11 +4,11 @@
 
 [![npm](https://img.shields.io/npm/v/gios-api.svg)][npm-link]
 [![license](https://img.shields.io/github/license/mixon00/gios-api.svg)][mit-license]
+[![npm](https://img.shields.io/npm/dm/gios-api.svg)][npm-link]
 [![donation](https://img.shields.io/badge/donate-PayPal-blue.svg)][paypal-donation]
 ![github](https://img.shields.io/github/stars/mixon00/gios-api.svg?style=social)
 [![twitter](https://img.shields.io/twitter/follow/mixon00.svg?&style=social)][twitter-url]
 
-<!-- [![npm](https://img.shields.io/npm/dm/gios-api.svg)][npm-link] -->
 
 ## Install
 
