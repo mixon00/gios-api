@@ -1,5 +1,16 @@
 # gios-api Changelog
 
+## 0.3.0
+
+### New features
+
+* Add fetchStationSensors method to GIOS_API class
+
+### Improvements
+
+* Update README
+* Update documentation
+
 ## 0.2.8
 
 ### New features
