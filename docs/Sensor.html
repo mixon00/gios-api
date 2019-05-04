@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      Station - Documentation
+      Sensor - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -86,7 +86,7 @@
   <div id="main">
     
       <h1 class="page-title">
-        Station
+        Sensor
       </h1>
     
 
@@ -97,13 +97,13 @@
     
       <h2>
         
-        Station
+        Sensor
         
       </h2>
 
       
         <div class="class-description">
-          <p>Class to parse station object.</p>
+          <p>Class to parse sensor object.</p>
         </div>
       
     
@@ -120,13 +120,13 @@
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#Station">
+    <a class="link-icon" href="#Sensor">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="Station">
-      <span class="type-signature"></span>new Station<span class="signature">(station)</span><span class="type-signature"></span>
+    <h4 class="name" id="Sensor">
+      <span class="type-signature"></span>new Sensor<span class="signature">(sensor, data)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -135,7 +135,7 @@
 
 
   <div class="description">
-    <p>Create a station.</p>
+    <p>Create a sensor.</p>
   </div>
 
 
@@ -168,14 +168,14 @@
     
       <tr>
         
-          <td class="name"><code>station</code></td>
+          <td class="name"><code>sensor</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      <a href="Station.html#~Object">Station~Object</a>
+      <a href="Sensor.html#~Object">Sensor~Object</a>
     </span>
 
     
@@ -189,7 +189,36 @@
         
 
         <td class="description last">
-          <p>The station object.</p>
+          <p>The sensor object.</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>data</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Array.&lt;<a href="Sensor.html#~Data">Sensor~Data</a>>
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>The sensor data.</p>
           
         </td>
       </tr>
@@ -228,14 +257,14 @@
 
     <tr>
       
-        <td class="name"><code>station</code></td>
+        <td class="name"><code>sensor</code></td>
       
 
       <td class="type">
         
           
     <span class="param-type">
-      <a href="Station.html#~Object">Station~Object</a>
+      <a href="Sensor.html#~Object">Sensor~Object</a>
     </span>
 
     
@@ -291,7 +320,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="Station.js.html">Station.js</a>, <a href="Station.js.html#line38">line 38</a>
+          <a href="Sensor.js.html">Sensor.js</a>, <a href="Sensor.js.html#line28">line 28</a>
         </li>
       </ul>
     </dd>
@@ -357,7 +386,7 @@
 
 
   <div class="description">
-    <p>Returns the station id.</p>
+    <p>Returns the sensor id.</p>
   </div>
 
 
@@ -400,7 +429,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="Station.js.html">Station.js</a>, <a href="Station.js.html#line60">line 60</a>
+          <a href="Sensor.js.html">Sensor.js</a>, <a href="Sensor.js.html#line50">line 50</a>
         </li>
       </ul>
     </dd>
@@ -434,9 +463,9 @@
     <h5 id="getId-examples">Example</h5>
     
 
-  <pre class="prettyprint"><code>const station = new Station(stationObject);
-const stationID = station.getId();
-// => 944</code></pre>
+  <pre class="prettyprint"><code>const sensor = new Station(sensorObject);
+const sensorID = sensor.getId();
+// => 6085</code></pre>
 
 
   </div>
@@ -449,13 +478,13 @@ const stationID = station.getId();
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#getName">
+    <a class="link-icon" href="#getStationId">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="getName">
-      <span class="type-signature"></span>getName<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span>
+    <h4 class="name" id="getStationId">
+      <span class="type-signature"></span>getStationId<span class="signature">()</span><span class="type-signature"> &rarr; {number}</span>
     </h4>
   </span>
 
@@ -464,7 +493,7 @@ const stationID = station.getId();
 
 
   <div class="description">
-    <p>Returns the station name.</p>
+    <p>Returns the sensor station id.</p>
   </div>
 
 
@@ -507,7 +536,114 @@ const stationID = station.getId();
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="Station.js.html">Station.js</a>, <a href="Station.js.html#line73">line 73</a>
+          <a href="Sensor.js.html">Sensor.js</a>, <a href="Sensor.js.html#line63">line 63</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#getStationId-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="getStationId-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>const sensor = new Station(sensorObject);
+const sensorStationID = sensor.getStationId();
+// => 6085</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#getName">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="getName">
+      <span class="type-signature"></span>getName<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Returns the sensor name.</p>
+  </div>
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="Sensor.js.html">Sensor.js</a>, <a href="Sensor.js.html#line76">line 76</a>
         </li>
       </ul>
     </dd>
@@ -541,9 +677,9 @@ const stationID = station.getId();
     <h5 id="getName-examples">Example</h5>
     
 
-  <pre class="prettyprint"><code>const station = new Station(stationObject);
-const stationName = station.getName();
-// => "Poznan-Dabrowskiego"</code></pre>
+  <pre class="prettyprint"><code>const sensor = new Station(sensorObject);
+const sensorName = sensor.getName();
+// => "pył zawieszony PM10"</code></pre>
 
 
   </div>
@@ -556,13 +692,13 @@ const stationName = station.getName();
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#getCoordinates">
+    <a class="link-icon" href="#getCode">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="getCoordinates">
-      <span class="type-signature"></span>getCoordinates<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Station.html#~Coordinates">Station~Coordinates</a>}</span>
+    <h4 class="name" id="getCode">
+      <span class="type-signature"></span>getCode<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span>
     </h4>
   </span>
 
@@ -571,7 +707,7 @@ const stationName = station.getName();
 
 
   <div class="description">
-    <p>Returns the station coordinates.</p>
+    <p>Returns the sensor code.</p>
   </div>
 
 
@@ -614,7 +750,7 @@ const stationName = station.getName();
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="Station.js.html">Station.js</a>, <a href="Station.js.html#line86">line 86</a>
+          <a href="Sensor.js.html">Sensor.js</a>, <a href="Sensor.js.html#line89">line 89</a>
         </li>
       </ul>
     </dd>
@@ -640,17 +776,17 @@ const stationName = station.getName();
 
 
   <div class="example-container">
-    <a class="link-icon" href="#getCoordinates-examples">
+    <a class="link-icon" href="#getCode-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="getCoordinates-examples">Example</h5>
+    <h5 id="getCode-examples">Example</h5>
     
 
-  <pre class="prettyprint"><code>const station = new Station(stationObject);
-const stationCoordinates = station.getCoordinates();
-// => { lat: 52.420319, lon: 16.877289 }</code></pre>
+  <pre class="prettyprint"><code>const sensor = new Station(sensorObject);
+const sensorCode = sensor.getCode();
+// => "PM10"</code></pre>
 
 
   </div>
@@ -663,13 +799,13 @@ const stationCoordinates = station.getCoordinates();
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#getCity">
+    <a class="link-icon" href="#fetchData">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="getCity">
-      <span class="type-signature"></span>getCity<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Station.html#~City">Station~City</a>}</span>
+    <h4 class="name" id="fetchData">
+      <span class="type-signature">(async) </span>fetchData<span class="signature">()</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -678,7 +814,7 @@ const stationCoordinates = station.getCoordinates();
 
 
   <div class="description">
-    <p>Returns the station city information.</p>
+    <p>Fetch sensor data.</p>
   </div>
 
 
@@ -721,7 +857,7 @@ const stationCoordinates = station.getCoordinates();
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="Station.js.html">Station.js</a>, <a href="Station.js.html#line102">line 102</a>
+          <a href="Sensor.js.html">Sensor.js</a>, <a href="Sensor.js.html#line101">line 101</a>
         </li>
       </ul>
     </dd>
@@ -747,17 +883,16 @@ const stationCoordinates = station.getCoordinates();
 
 
   <div class="example-container">
-    <a class="link-icon" href="#getCity-examples">
+    <a class="link-icon" href="#fetchData-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="getCity-examples">Example</h5>
+    <h5 id="fetchData-examples">Example</h5>
     
 
-  <pre class="prettyprint"><code>const station = new Station(stationObject);
-const stationCity = station.getCity();
-// => { id: 729, name: "Poznań", address: "ul. Dąbrowskiego 169", voivodeship: "WIELKOPOLSKIE" }</code></pre>
+  <pre class="prettyprint"><code>const sensor = new Station(sensorObject);
+const sensorCode = sensor.fetchData();</code></pre>
 
 
   </div>
@@ -776,7 +911,7 @@ const stationCity = station.getCity();
       </svg>
     </a>
     <h4 class="name" id="getRaw">
-      <span class="type-signature"></span>getRaw<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Station.html#~Object">Station~Object</a>}</span>
+      <span class="type-signature"></span>getRaw<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Sensor.html#~Object">Sensor~Object</a>}</span>
     </h4>
   </span>
 
@@ -785,7 +920,7 @@ const stationCity = station.getCity();
 
 
   <div class="description">
-    <p>Returns the station raw object.</p>
+    <p>Returns the sensor raw object.</p>
   </div>
 
 
@@ -828,7 +963,7 @@ const stationCity = station.getCity();
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="Station.js.html">Station.js</a>, <a href="Station.js.html#line127">line 127</a>
+          <a href="Sensor.js.html">Sensor.js</a>, <a href="Sensor.js.html#line126">line 126</a>
         </li>
       </ul>
     </dd>
@@ -862,8 +997,8 @@ const stationCity = station.getCity();
     <h5 id="getRaw-examples">Example</h5>
     
 
-  <pre class="prettyprint"><code>const station = new Station(stationObject);
-const stationCity = station.getRaw();</code></pre>
+  <pre class="prettyprint"><code>const sensor = new Station(sensorObject);
+const sensorCode = sensor.getRaw();</code></pre>
 
 
   </div>
@@ -897,7 +1032,7 @@ const stationCity = station.getRaw();</code></pre>
 
 
   <div class="description">
-    <p>Station object</p>
+    <p>Sensor object</p>
   </div>
 
 
@@ -956,7 +1091,7 @@ const stationCity = station.getRaw();</code></pre>
         
 
         <td class="description last">
-          <p>The station id</p>
+          <p>Sensor id.</p>
           </td>
     </tr>
 
@@ -964,142 +1099,7 @@ const stationCity = station.getRaw();</code></pre>
 
     <tr>
       
-        <td class="name"><code>stationName</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>The station name</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>gegrLat</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>The station Latitude</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>gegrLon</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>The station Longitude</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>city</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      object
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>The station city object</p>
-          
-            <h6>Properties</h6>
-            
-
-<table class="props">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-
-    <tr>
-      
-        <td class="name"><code>id</code></td>
+        <td class="name"><code>stationId</code></td>
       
 
       <td class="type">
@@ -1120,7 +1120,7 @@ const stationCity = station.getRaw();</code></pre>
         
 
         <td class="description last">
-          <p>The station city id</p>
+          <p>Station id.</p>
           </td>
     </tr>
 
@@ -1128,36 +1128,7 @@ const stationCity = station.getRaw();</code></pre>
 
     <tr>
       
-        <td class="name"><code>name</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>The station city name</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>commune</code></td>
+        <td class="name"><code>param</code></td>
       
 
       <td class="type">
@@ -1178,7 +1149,7 @@ const stationCity = station.getRaw();</code></pre>
         
 
         <td class="description last">
-          <p>The station city commune</p>
+          <p>Sensor params.</p>
           
             <h6>Properties</h6>
             
@@ -1205,7 +1176,7 @@ const stationCity = station.getRaw();</code></pre>
 
     <tr>
       
-        <td class="name"><code>communeName</code></td>
+        <td class="name"><code>paramName</code></td>
       
 
       <td class="type">
@@ -1226,7 +1197,7 @@ const stationCity = station.getRaw();</code></pre>
         
 
         <td class="description last">
-          <p>The city commune name</p>
+          <p>Sensor param name.</p>
           </td>
     </tr>
 
@@ -1234,7 +1205,7 @@ const stationCity = station.getRaw();</code></pre>
 
     <tr>
       
-        <td class="name"><code>districtName</code></td>
+        <td class="name"><code>paramFormula</code></td>
       
 
       <td class="type">
@@ -1255,7 +1226,7 @@ const stationCity = station.getRaw();</code></pre>
         
 
         <td class="description last">
-          <p>The city district name</p>
+          <p>Sensor param formula.</p>
           </td>
     </tr>
 
@@ -1263,7 +1234,7 @@ const stationCity = station.getRaw();</code></pre>
 
     <tr>
       
-        <td class="name"><code>provinceName</code></td>
+        <td class="name"><code>paramCode</code></td>
       
 
       <td class="type">
@@ -1284,14 +1255,36 @@ const stationCity = station.getRaw();</code></pre>
         
 
         <td class="description last">
-          <p>The city voivodeship</p>
+          <p>Sensor param code.</p>
           </td>
     </tr>
 
   
-  </tbody>
-</table>
 
+    <tr>
+      
+        <td class="name"><code>idParam</code></td>
+      
+
+      <td class="type">
+        
+          
+    <span class="param-type">
+      string
+    </span>
+
+    
+
+
+        
+      </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>Sensor param id.</p>
           </td>
     </tr>
 
@@ -1340,7 +1333,7 @@ const stationCity = station.getRaw();</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="Station.js.html">Station.js</a>, <a href="Station.js.html#line1">line 1</a>
+          <a href="Sensor.js.html">Sensor.js</a>, <a href="Sensor.js.html#line4">line 4</a>
         </li>
       </ul>
     </dd>
@@ -1373,13 +1366,13 @@ const stationCity = station.getRaw();</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#~City">
+    <a class="link-icon" href="#~Data">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="~City">
-      <span class="type-signature"></span>City<span class="type-signature"> :object</span>
+    <h4 class="name" id="~Data">
+      <span class="type-signature"></span>Data<span class="type-signature"> :object</span>
     </h4>
   </span>
 
@@ -1388,7 +1381,7 @@ const stationCity = station.getRaw();</code></pre>
 
 
   <div class="description">
-    <p>Station city object</p>
+    <p>Sensor data</p>
   </div>
 
 
@@ -1426,7 +1419,36 @@ const stationCity = station.getRaw();</code></pre>
 
     <tr>
       
-        <td class="name"><code>id</code></td>
+        <td class="name"><code>data</code></td>
+      
+
+      <td class="type">
+        
+          
+    <span class="param-type">
+      string
+    </span>
+
+    
+
+
+        
+      </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>Date and time of measurement.</p>
+          </td>
+    </tr>
+
+  
+
+    <tr>
+      
+        <td class="name"><code>value</code></td>
       
 
       <td class="type">
@@ -1447,94 +1469,7 @@ const stationCity = station.getRaw();</code></pre>
         
 
         <td class="description last">
-          <p>The city id</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>name</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>The city name</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>address</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>The city address</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>voivodeship</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      string
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>The city voivodeship</p>
+          <p>The value of the measurement.</p>
           </td>
     </tr>
 
@@ -1576,185 +1511,7 @@ const stationCity = station.getRaw();</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="Station.js.html">Station.js</a>, <a href="Station.js.html#line17">line 17</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-          
-
-
-  
-
-  <span class='name-container'>
-    <a class="link-icon" href="#~Coordinates">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id="~Coordinates">
-      <span class="type-signature"></span>Coordinates<span class="type-signature"> :object</span>
-    </h4>
-  </span>
-
-  
-
-
-
-  <div class="description">
-    <p>Staion coordinates object</p>
-  </div>
-
-
-
-
-
-
-
-
-
-
-  <h5 class="subsection-title">Properties:</h5>
-
-  
-
-<table class="props">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-
-    <tr>
-      
-        <td class="name"><code>lat</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      number
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>The latitude value</p>
-          </td>
-    </tr>
-
-  
-
-    <tr>
-      
-        <td class="name"><code>lon</code></td>
-      
-
-      <td class="type">
-        
-          
-    <span class="param-type">
-      number
-    </span>
-
-    
-
-
-        
-      </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>The longitude value</p>
-          </td>
-    </tr>
-
-  
-  </tbody>
-</table>
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="Station.js.html">Station.js</a>, <a href="Station.js.html#line26">line 26</a>
+          <a href="Sensor.js.html">Sensor.js</a>, <a href="Sensor.js.html#line16">line 16</a>
         </li>
       </ul>
     </dd>

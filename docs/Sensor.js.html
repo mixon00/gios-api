@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      Station.js - Documentation
+      Sensor.js - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -88,7 +88,7 @@
   <div id="main">
     
       <h1 class="page-title">
-        Station.js
+        Sensor.js
       </h1>
     
 
@@ -97,138 +97,137 @@
 
 <section>
   <article>
-    <pre class="prettyprint source linenums"><code>/**
- * Station object
- * @typedef {object} Station~Object
- * @property {number} id The station id
- * @property {string} stationName The station name
- * @property {string} gegrLat The station Latitude
- * @property {string} gegrLon The station Longitude
- * @property {object} city The station city object
- * @property {number} city.id The station city id
- * @property {string} city.name The station city name
- * @property {object} city.commune The station city commune
- * @property {string} city.commune.communeName The city commune name
- * @property {string} city.commune.districtName The city district name
- * @property {string} city.commune.provinceName The city voivodeship
+    <pre class="prettyprint source linenums"><code>const fetch = require("node-fetch").default;
+const { api } = require("./constants");
+
+/**
+ * Sensor object
+ * @typedef {object} Sensor~Object
+ * @property {number} id Sensor id.
+ * @property {number} stationId Station id.
+ * @property {object} param Sensor params.
+ * @property {string} param.paramName Sensor param name.
+ * @property {string} param.paramFormula Sensor param formula.
+ * @property {string} param.paramCode Sensor param code.
+ * @property {string} param.idParam Sensor param id.
  */
 
 /**
- * Station city object
- * @typedef {object} Station~City
- * @property {number} id The city id
- * @property {string} name The city name
- * @property {string} address The city address
- * @property {string} voivodeship The city voivodeship
+ * Sensor data
+ * @typedef {object} Sensor~Data
+ * @property {string} data Date and time of measurement.
+ * @property {number} value The value of the measurement.
  */
 
 /**
- * Staion coordinates object
- * @typedef {object} Station~Coordinates
- * @property {number} lat The latitude value
- * @property {number} lon The longitude value
- */
-
-/**
- * Class to parse station object.
+ * Class to parse sensor object.
  * @class
- * @property {Station~Object} station The station object.
+ * @property {Sensor~Object} sensor The station object.
  * */
-class Station {
+class Sensor {
   /**
-   * Create a station.
-   * @param {Station~Object} station - The station object.
+   * Create a sensor.
+   * @param {Sensor~Object} sensor - The sensor object.
+   * @param {Sensor~Data[]} data - The sensor data.
    * @example
    *
-   * const station = new Station(stationObject);
+   * const sensor = new Sensor(sensorObject);
    */
-  constructor(station) {
-    this.station = station;
-    this.sensors = [];
+  constructor(sensor) {
+    this.sensor = sensor;
   }
 
   /**
-   * Returns the station id.
-   * @return {number} Station id.
+   * Returns the sensor id.
+   * @return {number} Sensor id.
    * @example
    *
-   * const station = new Station(stationObject);
-   * const stationID = station.getId();
-   * // => 944
+   * const sensor = new Station(sensorObject);
+   * const sensorID = sensor.getId();
+   * // => 6085
    */
   getId() {
-    return this.station.id;
+    return this.sensor.id;
   }
 
   /**
-   * Returns the station name.
-   * @return {string} Station name.
+   * Returns the sensor station id.
+   * @return {number} Sensor station id.
    * @example
    *
-   * const station = new Station(stationObject);
-   * const stationName = station.getName();
-   * // => "Poznan-Dabrowskiego"
+   * const sensor = new Station(sensorObject);
+   * const sensorStationID = sensor.getStationId();
+   * // => 6085
+   */
+  getStationId() {
+    return this.sensor.stationId;
+  }
+
+  /**
+   * Returns the sensor name.
+   * @return {string} Sensor name.
+   * @example
+   *
+   * const sensor = new Station(sensorObject);
+   * const sensorName = sensor.getName();
+   * // => "pył zawieszony PM10"
    */
   getName() {
-    return this.station.stationName;
+    return this.sensor.param.paramName;
   }
 
   /**
-   * Returns the station coordinates.
-   * @return {Station~Coordinates} Station coordinates.
+   * Returns the sensor code.
+   * @return {string} Sensor code.
    * @example
    *
-   * const station = new Station(stationObject);
-   * const stationCoordinates = station.getCoordinates();
-   * // => { lat: 52.420319, lon: 16.877289 }
+   * const sensor = new Station(sensorObject);
+   * const sensorCode = sensor.getCode();
+   * // => "PM10"
    */
-  getCoordinates() {
-    return {
-      lat: parseFloat(this.station.gegrLat),
-      lon: parseFloat(this.station.gegrLon)
-    };
+  getCode() {
+    return this.sensor.param.paramCode;
   }
 
   /**
-   * Returns the station city information.
-   * @return {Station~City} Station city.
+   * Fetch sensor data.
+   * @async
    * @example
    *
-   * const station = new Station(stationObject);
-   * const stationCity = station.getCity();
-   * // => { id: 729, name: "Poznań", address: "ul. Dąbrowskiego 169", voivodeship: "WIELKOPOLSKIE" }
+   * const sensor = new Station(sensorObject);
+   * const sensorCode = sensor.fetchData();
    */
-  getCity() {
-    const {
-      city: {
-        id,
-        name,
-        commune: { provinceName: voivodeship }
-      },
-      addressStreet: address
-    } = this.station;
-    return {
-      id,
-      name,
-      address,
-      voivodeship
-    };
+  async fetchData() {
+    try {
+      const response = await fetch(
+        `${api.url}${api.sensor_data}${this.getId()}`
+      );
+      const data = await response.json();
+      this.data = data.values;
+      return this.data;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  getData() {
+    return this.data;
   }
 
   /**
-   * Returns the station raw object.
-   * @return {Station~Object} Raw station object.
+   * Returns the sensor raw object.
+   * @return {Sensor~Object} Sensor raw object.
    * @example
    *
-   * const station = new Station(stationObject);
-   * const stationCity = station.getRaw();
+   * const sensor = new Station(sensorObject);
+   * const sensorCode = sensor.getRaw();
    */
   getRaw() {
-    return this.station;
+    return this.sensor;
   }
 }
 
-module.exports = Station;
+module.exports = Sensor;
 </code></pre>
   </article>
 </section>

@@ -80,7 +80,7 @@
       
     
 
-    <h3>Classes</h3><ul><li id="Station-nav"><a href="Station.html">Station</a><ul class='methods'><li data-type="method" id="Station-getId-nav"><a href="Station.html#getId">getId</a></li><li data-type="method" id="Station-getName-nav"><a href="Station.html#getName">getName</a></li><li data-type="method" id="Station-getCoordinates-nav"><a href="Station.html#getCoordinates">getCoordinates</a></li><li data-type="method" id="Station-getCity-nav"><a href="Station.html#getCity">getCity</a></li><li data-type="method" id="Station-getRaw-nav"><a href="Station.html#getRaw">getRaw</a></li></ul></li><li id="GIOS_API-nav"><a href="GIOS_API.html">GIOS_API</a><ul class='methods'><li data-type="method" id="GIOS_API-findAll-nav"><a href="GIOS_API.html#findAll">findAll</a></li><li data-type="method" id="GIOS_API-findById-nav"><a href="GIOS_API.html#findById">findById</a></li><li data-type="method" id="GIOS_API-findInRange-nav"><a href="GIOS_API.html#findInRange">findInRange</a></li></ul></li></ul>
+    <h3>Classes</h3><ul><li id="GIOS_API-nav"><a href="GIOS_API.html">GIOS_API</a><ul class='methods'><li data-type="method" id="GIOS_API-findAll-nav"><a href="GIOS_API.html#findAll">findAll</a></li><li data-type="method" id="GIOS_API-findById-nav"><a href="GIOS_API.html#findById">findById</a></li><li data-type="method" id="GIOS_API-findInRange-nav"><a href="GIOS_API.html#findInRange">findInRange</a></li><li data-type="method" id="GIOS_API-fetchStationSensors-nav"><a href="GIOS_API.html#fetchStationSensors">fetchStationSensors</a></li></ul></li><li id="Sensor-nav"><a href="Sensor.html">Sensor</a><ul class='methods'><li data-type="method" id="Sensor-getId-nav"><a href="Sensor.html#getId">getId</a></li><li data-type="method" id="Sensor-getStationId-nav"><a href="Sensor.html#getStationId">getStationId</a></li><li data-type="method" id="Sensor-getName-nav"><a href="Sensor.html#getName">getName</a></li><li data-type="method" id="Sensor-getCode-nav"><a href="Sensor.html#getCode">getCode</a></li><li data-type="method" id="Sensor-fetchData-nav"><a href="Sensor.html#fetchData">fetchData</a></li><li data-type="method" id="Sensor-getRaw-nav"><a href="Sensor.html#getRaw">getRaw</a></li></ul></li><li id="SensorsList-nav"><a href="SensorsList.html">SensorsList</a><ul class='methods'><li data-type="method" id="SensorsList-getList-nav"><a href="SensorsList.html#getList">getList</a></li><li data-type="method" id="SensorsList-getSensor-nav"><a href="SensorsList.html#getSensor">getSensor</a></li><li data-type="method" id="SensorsList-getCodes-nav"><a href="SensorsList.html#getCodes">getCodes</a></li><li data-type="method" id="SensorsList-prefetchData-nav"><a href="SensorsList.html#prefetchData">prefetchData</a></li></ul></li><li id="Station-nav"><a href="Station.html">Station</a><ul class='methods'><li data-type="method" id="Station-getId-nav"><a href="Station.html#getId">getId</a></li><li data-type="method" id="Station-getName-nav"><a href="Station.html#getName">getName</a></li><li data-type="method" id="Station-getCoordinates-nav"><a href="Station.html#getCoordinates">getCoordinates</a></li><li data-type="method" id="Station-getCity-nav"><a href="Station.html#getCity">getCity</a></li><li data-type="method" id="Station-getRaw-nav"><a href="Station.html#getRaw">getRaw</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
@@ -98,13 +98,18 @@
 
   <section class="readme">
     <article>
-      <h1>GIOŚ API JavaScript Wrapper</h1><h3>Install</h3><p><code>yarn add gios-api</code></p>
-<p>or</p>
-<p><code>npm install gios-api</code></p>
-<h3>Import and use</h3><pre class="prettyprint source lang-javascript"><code>import GIOS_API from &quot;gios-api&quot;;
+      <h1>GIOŚ API JavaScript Wrapper</h1><p><strong>gios-api</strong> is JavaScript wrapper of <a href="https://powietrze.gios.gov.pl/pjp/content/api">GIOŚ API</a></p>
+<p><a href="https://www.npmjs.com/package/gios-api"><img src="https://img.shields.io/npm/v/gios-api.svg" alt="npm"></a>
+<a href="https://github.com/mixon00/gios-api/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mixon00/gios-api.svg" alt="license"></a>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=G9TMAD3S3W9EY&amp;source=url"><img src="https://img.shields.io/badge/donate-PayPal-blue.svg" alt="donation"></a>
+<img src="https://img.shields.io/github/stars/mixon00/gios-api.svg?style=social" alt="github">
+<a href="https://twitter.com/mixon00"><img src="https://img.shields.io/twitter/follow/mixon00.svg?&amp;style=social" alt="twitter"></a></p>
+<!-- [![npm](https://img.shields.io/npm/dm/gios-api.svg)][npm-link] -->
+<h2>Install</h2><h3>Yarn</h3><pre class="prettyprint source lang-sh"><code>yarn add gios-api</code></pre><h3>Npm</h3><pre class="prettyprint source lang-sh"><code>npm install gios-api</code></pre><h2>Import and use</h2><pre class="prettyprint source lang-javascript"><code>import { GIOS_API } from &quot;gios-api&quot;;
 
 const giosAPI = new GIOS_API();
-const stations = await giosAPI.findAll();</code></pre>
+const stations = await giosAPI.findAll();</code></pre><h2>Documentation</h2><p>Browse the <a href="https://mixon00.github.io/gios-api/">online documentation here.</a></p>
+<h2>Copyright and license</h2><p>Code copyright 2019 Mateusz Misztoft. Code released under <a href="https://github.com/mixon00/gios-api/blob/master/LICENSE">the MIT license</a>.</p>
     </article>
   </section>
 
