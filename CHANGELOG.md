@@ -1,5 +1,16 @@
 # gios-api Changelog
 
+## 0.4.0
+
+### New features
+
+* Add AirQuality class
+* Add fetchAirQuality method to GIOS_API class
+
+### Improvements
+
+* Update documentation
+
 ## 0.3.0
 
 ### New features
