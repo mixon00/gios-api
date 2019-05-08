@@ -1,8 +1,9 @@
-const Station = require("./Station");
-const SensorsList = require("./SensorsList");
-const fetch = require("node-fetch").default;
-const { api } = require("./constants");
-const nearestLocation = require("./utils/nearestLocation");
+const Station = require('./Station');
+const SensorsList = require('./SensorsList');
+const AirQuality = require('./AirQuality');
+const fetch = require('node-fetch').default;
+const { api } = require('./constants');
+const nearestLocation = require('./utils/nearestLocation');
 
 /**
  * GIOS API Class.
@@ -127,9 +128,9 @@ class GIOS_API {
    *
    * const giosApi = new GIOS_API();
    * const sensors = await giosApi.fetchStationSensors(944);
-   * 
+   *
    * //or
-   * 
+   *
    * const sensors = await giosApi.fetchStationSensors(944, true);
    */
   async fetchStationSensors(stationId, prefetch = false) {
@@ -138,10 +139,32 @@ class GIOS_API {
       const sensors = await response.json();
       const sensorsList = new SensorsList(sensors);
 
-      if(prefetch) await sensorsList.prefetchData();
+      if (prefetch) await sensorsList.prefetchData();
 
-      return sensorsList
+      return sensorsList;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 
+  /**
+   * Fetch station air quality by station id.
+   *
+   * @async
+   * @param {number} id - The station id.
+   * @return {Promise<AirQuality>} Return the StationList class.
+   * @throws {TypeError} Connection error
+   * @example
+   *
+   * const giosApi = new GIOS_API();
+   * const airQuality = await giosApi.fetchAirQuality(944);
+   */
+  async fetchAirQuality(stationId) {
+    try {
+      const response = await fetch(`${api.url}${api.air_quality}${stationId}`);
+      const airQuality = await response.json();
+
+      return new AirQuality(airQuality);
     } catch (error) {
       throw new Error(error);
     }

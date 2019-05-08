@@ -1,6 +1,6 @@
 {
   "name": "gios-api",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "GIOŚ API JavaScript Wrapper",
   "main": "dist/gios_api.js",
   "keywords": [
@@ -34,7 +34,9 @@
   "scripts": {
     "docs": "rimraf docs && jsdoc -c jsdoc.json --verbose",
     "test": "jest --verbose",
-    "build": "rimraf dist && webpack"
+    "build": "rimraf dist && webpack",
+    "preversion": "yarn test",
+    "postversion": "git push --tags && npm publish && git push && echo \"Successfully released version $npm_package_version!\""
   },
   "devDependencies": {
     "braintree-jsdoc-template": "^3.3.0",
