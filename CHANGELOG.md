@@ -1,5 +1,11 @@
 # gios-api Changelog
 
+## 0.4.1
+
+### Bug fixes
+
+* Fix export AirQuality class
+
 ## 0.4.0
 
 ### New features
