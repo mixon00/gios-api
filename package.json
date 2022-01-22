@@ -29,7 +29,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "node-fetch": "^2.4.1"
+    "node-fetch": "^3.1.1"
   },
   "scripts": {
     "docs": "rimraf docs && jsdoc -c jsdoc.json --verbose",
